@@ -1,13 +1,11 @@
-const DISCORD_CLIENT_ID = import.meta.env.VITE_DISCORD_CLIENT_ID;
-const DISCORD_REDIRECT_URI = import.meta.env.VITE_DISCORD_REDIRECT_URI;
-const DISCORD_ENDPOINT = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(DISCORD_REDIRECT_URI)}&response_type=code&scope=identify%20email%20guilds`;
+const DISCORD_ENDPOINT = `https://discord.com/api/oauth2/authorize?client_id=1108203813921370112&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fcallback&response_type=code&scope=identify`;
 
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
  */
- export async function get() {
+export async function get() {
 	return {
-    headers: { Location: DISCORD_ENDPOINT },
-    status: 302
-  }
+		headers: { Location: DISCORD_ENDPOINT },
+		status: 302
+	};
 }
